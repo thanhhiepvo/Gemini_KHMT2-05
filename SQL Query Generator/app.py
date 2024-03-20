@@ -1,5 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
+import pandas as pd 
 
 GOOGLE_API_KEY = "AIzaSyBqOvuNlu67wagkcCCuAvR_ytgIfQY36u4"
 
@@ -21,6 +22,13 @@ def main():
     )
 
     text_input = st.text_area("Enter your prompt here:")
+    uploaded_file = st.file_uploader("Choose a CSV file (optional):")
+    data = None
+
+    if uploaded_file is not None:
+        data = pd.read_csv(uploaded_file)
+        st.write("Data preview:")
+        st.dataframe(data.head())
 
     submit=st.button("Generate SQL Query")
     if submit:
@@ -38,5 +46,13 @@ def main():
             response = model.generate_content(formatted_template)
             sql_query = response.text
             st.write(sql_query)
+            if data is not None and st.checkbox("Execute query on uploaded data?"):
+                try:
+                    # Execute the query on the dataframe 'data'
+                    result = data.query(sql_query)
+                    st.write("Query Results:")
+                    st.dataframe(result)
+                except Exception as e:
+                    st.error(f"Error executing query: {e}")
 
 main()

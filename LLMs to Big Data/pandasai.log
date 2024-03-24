@@ -1,0 +1,3471 @@
+2024-03-21 16:04:38 [INFO] Question: List all male with the age above 30
+2024-03-21 16:04:38 [INFO] Running PandasAI with openai LLM...
+2024-03-21 16:04:38 [INFO] Prompt ID: 68d32474-b778-4b9f-a15e-a7042c09aed5
+2024-03-21 16:04:38 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-21 16:04:38 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-21 16:04:38 [INFO] Executing Step 1: CacheLookup
+2024-03-21 16:04:38 [INFO] Executing Step 2: PromptGeneration
+2024-03-21 16:04:38 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 27
+      - 26
+      - 35
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'Yes'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 4
+      - 1
+      - 3
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 4
+      - 1
+      - 6
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 6
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 4
+      - 2
+      - 6
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 1
+      - 2
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 4
+      - 6
+      - 1
+    - name: Gold
+      type: int64
+      samples:
+      - 5
+      - 4
+      - 7
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Risk
+      - Returns
+      - Locking Period
+    - name: Objective
+      type: object
+      samples:
+      - Income
+      - Growth
+      - Capital Appreciation
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 3-5 years
+      - Less than 1 year
+      - 1-3 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Weekly
+      - Monthly
+    - name: Expect
+      type: object
+      samples:
+      - 30%-40%
+      - 20%-30%
+      - 10%-20%
+    - name: Avenue
+      type: object
+      samples:
+      - Fixed Deposits
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Education
+      - Retirement Plan
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Liquidity
+      - Capital Appreciation
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Better Returns
+      - Fund Diversification
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - Risk Free
+      - High Interest Rates
+    - name: Source
+      type: object
+      samples:
+      - Financial Consultants
+      - Internet
+      - Television
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ List all male with the age above 30
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-21 16:04:38 [INFO] Executing Step 3: CodeGenerator
+2024-03-21 16:04:41 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 27
+      - 26
+      - 35
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'Yes'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 4
+      - 1
+      - 3
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 4
+      - 1
+      - 6
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 6
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 4
+      - 2
+      - 6
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 1
+      - 2
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 4
+      - 6
+      - 1
+    - name: Gold
+      type: int64
+      samples:
+      - 5
+      - 4
+      - 7
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Risk
+      - Returns
+      - Locking Period
+    - name: Objective
+      type: object
+      samples:
+      - Income
+      - Growth
+      - Capital Appreciation
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 3-5 years
+      - Less than 1 year
+      - 1-3 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Weekly
+      - Monthly
+    - name: Expect
+      type: object
+      samples:
+      - 30%-40%
+      - 20%-30%
+      - 10%-20%
+    - name: Avenue
+      type: object
+      samples:
+      - Fixed Deposits
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Education
+      - Retirement Plan
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Liquidity
+      - Capital Appreciation
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Better Returns
+      - Fund Diversification
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - Risk Free
+      - High Interest Rates
+    - name: Source
+      type: object
+      samples:
+      - Financial Consultants
+      - Internet
+      - Television
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ List all male with the age above 30
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-21 16:04:41 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Filter males with age above 30
+result_df = dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 30)]
+
+# Declare result variable
+result = {"type": "dataframe", "value": result_df}
+            ```
+            
+2024-03-21 16:04:41 [INFO] Executing Step 4: CachePopulation
+2024-03-21 16:04:41 [INFO] Executing Step 5: CodeExecution
+2024-03-21 16:04:41 [INFO] 
+Code running:
+```
+result_df = dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 30)]
+result = {'type': 'dataframe', 'value': result_df}
+        ```
+2024-03-21 16:04:41 [INFO] Executing Step 6: ResultValidation
+2024-03-21 16:04:41 [INFO] Answer: {'type': 'dataframe', 'value':    gender  age Investment_Avenues  Mutual_Funds  ...         Reason_Mutual     Reason_Bonds      Reason_FD                    Source
+8    Male   35                Yes             2  ...  Fund Diversification  Safe Investment  Fixed Returns                Television
+9    Male   31                Yes             1  ...  Fund Diversification  Assured Returns  Fixed Returns  Newspapers and Magazines
+27   Male   31                Yes             2  ...  Fund Diversification  Safe Investment  Fixed Returns                Television
+38   Male   31                Yes             2  ...  Fund Diversification  Assured Returns  Fixed Returns  Newspapers and Magazines
+
+[4 rows x 24 columns]}
+2024-03-21 16:04:41 [INFO] Executing Step 7: ResultParsing
+2024-03-22 21:12:39 [INFO] Question: How many movie release after 2020
+2024-03-22 21:12:40 [INFO] Running PandasAI with openai LLM...
+2024-03-22 21:12:40 [INFO] Prompt ID: 310d9c2e-c354-4fb8-ae50-c1a53f50d3e9
+2024-03-22 21:12:40 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-22 21:12:40 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-22 21:12:40 [INFO] Executing Step 1: CacheLookup
+2024-03-22 21:12:40 [INFO] Executing Step 2: PromptGeneration
+2024-03-22 21:12:40 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 8807
+  columns: 12
+  schema:
+    fields:
+    - name: show_id
+      type: object
+      samples:
+      - s4623
+      - s6225
+      - s539
+    - name: type
+      type: object
+      samples:
+      - TV Show
+      - Movie
+      - TV Show
+    - name: title
+      type: object
+      samples:
+      - The Burial of Kojo
+      - Maniyarayile Ashokan
+      - Luck by Chance
+    - name: director
+      type: object
+      samples:
+      - Sherif Mandour
+      - .nan
+      - Vicky Matthews
+    - name: cast
+      type: object
+      samples:
+      - Marina Inoue, Ryoko Shiraishi, Takuma Terashima, Junko Takeuchi, Fumihiro
+        Okabayashi, Yu Kobayashi, Ayahi Takagaki
+      - "Marcel Borr\xE0s, Bruna Cus\xED, Nuria Prims, Oriol Pla, Luisa Gavasa, Terele\
+        \ P\xE1vez, Fernando Esteso, Juan Diego, Roger Casamajor, Jorge Us\xF3n"
+      - .nan
+    - name: country
+      type: object
+      samples:
+      - Russia, United States
+      - Argentina
+      - .nan
+    - name: date_added
+      type: object
+      samples:
+      - April 26, 2017
+      - .nan
+      - December 12, 2016
+    - name: release_year
+      type: int64
+      samples:
+      - 1965
+      - 2005
+      - 2009
+    - name: rating
+      type: object
+      samples:
+      - NC-17
+      - .nan
+      - TV-Y7-FV
+    - name: duration
+      type: object
+      samples:
+      - .nan
+      - 49 min
+      - 161 min
+    - name: listed_in
+      type: object
+      samples:
+      - Anime Series
+      - Dramas, International Movies, Sports Movies
+      - Comedies, Cult Movies, Horror Movies
+    - name: description
+      type: object
+      samples:
+      - "Stranded in the woods and eyeballed by twisted hunters, members of a women\u2019\
+        s volleyball team bump it up in the most dangerous game of their lives."
+      - A young wannabe magician and his mischievous stage rabbit battle and sabotage
+        each other while putting on shows.
+      - Ai, a young half-demon who has escaped from Horai Island to try to help her
+        people, returns with potential saviors InuYasha, Sesshomaru and Kikyo.
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many movie release after 2020
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-22 21:12:40 [INFO] Executing Step 3: CodeGenerator
+2024-03-22 21:12:43 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 8807
+  columns: 12
+  schema:
+    fields:
+    - name: show_id
+      type: object
+      samples:
+      - s4623
+      - s6225
+      - s539
+    - name: type
+      type: object
+      samples:
+      - TV Show
+      - Movie
+      - TV Show
+    - name: title
+      type: object
+      samples:
+      - The Burial of Kojo
+      - Maniyarayile Ashokan
+      - Luck by Chance
+    - name: director
+      type: object
+      samples:
+      - Sherif Mandour
+      - .nan
+      - Vicky Matthews
+    - name: cast
+      type: object
+      samples:
+      - Marina Inoue, Ryoko Shiraishi, Takuma Terashima, Junko Takeuchi, Fumihiro
+        Okabayashi, Yu Kobayashi, Ayahi Takagaki
+      - "Marcel Borr\xE0s, Bruna Cus\xED, Nuria Prims, Oriol Pla, Luisa Gavasa, Terele\
+        \ P\xE1vez, Fernando Esteso, Juan Diego, Roger Casamajor, Jorge Us\xF3n"
+      - .nan
+    - name: country
+      type: object
+      samples:
+      - Russia, United States
+      - Argentina
+      - .nan
+    - name: date_added
+      type: object
+      samples:
+      - April 26, 2017
+      - .nan
+      - December 12, 2016
+    - name: release_year
+      type: int64
+      samples:
+      - 1965
+      - 2005
+      - 2009
+    - name: rating
+      type: object
+      samples:
+      - NC-17
+      - .nan
+      - TV-Y7-FV
+    - name: duration
+      type: object
+      samples:
+      - .nan
+      - 49 min
+      - 161 min
+    - name: listed_in
+      type: object
+      samples:
+      - Anime Series
+      - Dramas, International Movies, Sports Movies
+      - Comedies, Cult Movies, Horror Movies
+    - name: description
+      type: object
+      samples:
+      - "Stranded in the woods and eyeballed by twisted hunters, members of a women\u2019\
+        s volleyball team bump it up in the most dangerous game of their lives."
+      - A young wannabe magician and his mischievous stage rabbit battle and sabotage
+        each other while putting on shows.
+      - Ai, a young half-demon who has escaped from Horai Island to try to help her
+        people, returns with potential saviors InuYasha, Sesshomaru and Kikyo.
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many movie release after 2020
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-22 21:12:43 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Filter the DataFrame to include only movies released after 2020
+movies_df = dfs[0][dfs[0]['type'] == 'Movie']
+movies_after_2020 = movies_df[movies_df['release_year'] > 2020]
+
+# Count the number of movies released after 2020
+num_movies_after_2020 = len(movies_after_2020)
+
+# Declare result variable
+result = {
+    "type": "string",
+    "value": f"The number of movies released after 2020 is: {num_movies_after_2020}"
+}
+            ```
+            
+2024-03-22 21:12:43 [INFO] Executing Step 4: CachePopulation
+2024-03-22 21:12:43 [INFO] Executing Step 5: CodeExecution
+2024-03-22 21:12:43 [INFO] 
+Code running:
+```
+movies_df = dfs[0][dfs[0]['type'] == 'Movie']
+movies_after_2020 = movies_df[movies_df['release_year'] > 2020]
+num_movies_after_2020 = len(movies_after_2020)
+result = {'type': 'string', 'value': f'The number of movies released after 2020 is: {num_movies_after_2020}'}
+        ```
+2024-03-22 21:12:43 [INFO] Executing Step 6: ResultValidation
+2024-03-22 21:12:43 [INFO] Answer: {'type': 'string', 'value': 'The number of movies released after 2020 is: 277'}
+2024-03-22 21:12:43 [INFO] Executing Step 7: ResultParsing
+2024-03-22 21:17:25 [INFO] Question: How many males older than 30
+2024-03-22 21:17:25 [INFO] Running PandasAI with openai LLM...
+2024-03-22 21:17:25 [INFO] Prompt ID: 0ac99b9f-b96c-4e85-85c0-4c2df7d6beed
+2024-03-22 21:17:25 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-22 21:17:25 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-22 21:17:25 [INFO] Executing Step 1: CacheLookup
+2024-03-22 21:17:25 [INFO] Executing Step 2: PromptGeneration
+2024-03-22 21:17:25 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Male
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 27
+      - 25
+      - 26
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'Yes'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 3
+      - 5
+      - 1
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 5
+      - 6
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 5
+      - 6
+      - 2
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 7
+      - 3
+      - 4
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 3
+      - 7
+      - 1
+    - name: PPF
+      type: int64
+      samples:
+      - 6
+      - 5
+      - 1
+    - name: Gold
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'Yes'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Capital Appreciation
+      - Growth
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Returns
+      - Wealth Creation
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 3-5 years
+      - Less than 1 year
+      - More than 5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Weekly
+      - Monthly
+    - name: Expect
+      type: object
+      samples:
+      - 20%-30%
+      - 10%-20%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Mutual Fund
+      - Equity
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Education
+      - Retirement Plan
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Assured Returns
+      - Safe Investment
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - Risk Free
+      - High Interest Rates
+    - name: Source
+      type: object
+      samples:
+      - Financial Consultants
+      - Internet
+      - Television
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many males older than 30
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-22 21:17:25 [INFO] Executing Step 3: CodeGenerator
+2024-03-22 21:17:28 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Male
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 27
+      - 25
+      - 26
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'Yes'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 3
+      - 5
+      - 1
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 5
+      - 6
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 5
+      - 6
+      - 2
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 7
+      - 3
+      - 4
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 3
+      - 7
+      - 1
+    - name: PPF
+      type: int64
+      samples:
+      - 6
+      - 5
+      - 1
+    - name: Gold
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'Yes'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Capital Appreciation
+      - Growth
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Returns
+      - Wealth Creation
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 3-5 years
+      - Less than 1 year
+      - More than 5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Weekly
+      - Monthly
+    - name: Expect
+      type: object
+      samples:
+      - 20%-30%
+      - 10%-20%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Mutual Fund
+      - Equity
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Education
+      - Retirement Plan
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Assured Returns
+      - Safe Investment
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - Risk Free
+      - High Interest Rates
+    - name: Source
+      type: object
+      samples:
+      - Financial Consultants
+      - Internet
+      - Television
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many males older than 30
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-22 21:17:28 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Filter males older than 30
+males_over_30 = dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 30)]
+
+# Count the number of males older than 30
+num_males_over_30 = males_over_30.shape[0]
+
+# Declare result variable
+result = {"type": "number", "value": num_males_over_30}
+            ```
+            
+2024-03-22 21:17:28 [INFO] Executing Step 4: CachePopulation
+2024-03-22 21:17:28 [INFO] Executing Step 5: CodeExecution
+2024-03-22 21:17:28 [INFO] 
+Code running:
+```
+males_over_30 = dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 30)]
+num_males_over_30 = males_over_30.shape[0]
+result = {'type': 'number', 'value': num_males_over_30}
+        ```
+2024-03-22 21:17:28 [INFO] Executing Step 6: ResultValidation
+2024-03-22 21:17:28 [INFO] Answer: {'type': 'number', 'value': 4}
+2024-03-22 21:17:28 [INFO] Executing Step 7: ResultParsing
+2024-03-22 21:22:08 [INFO] Question: How many males older than 30
+2024-03-22 21:22:08 [INFO] Running PandasAI with openai LLM...
+2024-03-22 21:22:08 [INFO] Prompt ID: b78c76b6-f303-43bc-beb2-7c06d93561a1
+2024-03-22 21:22:08 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-22 21:22:08 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-22 21:22:08 [INFO] Executing Step 1: CacheLookup
+2024-03-22 21:22:08 [INFO] Using cached response
+2024-03-22 21:22:08 [INFO] Executing Step 2: PromptGeneration
+2024-03-22 21:22:08 [INFO] Executing Step 2: Skipping...
+2024-03-22 21:22:08 [INFO] Executing Step 3: CodeGenerator
+2024-03-22 21:22:08 [INFO] Executing Step 3: Skipping...
+2024-03-22 21:22:08 [INFO] Executing Step 4: CachePopulation
+2024-03-22 21:22:08 [INFO] Executing Step 4: Skipping...
+2024-03-22 21:22:08 [INFO] Executing Step 5: CodeExecution
+2024-03-22 21:22:08 [INFO] 
+Code running:
+```
+males_over_30 = dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 30)]
+num_males_over_30 = males_over_30.shape[0]
+result = {'type': 'number', 'value': num_males_over_30}
+        ```
+2024-03-22 21:22:08 [INFO] Executing Step 6: ResultValidation
+2024-03-22 21:22:08 [INFO] Answer: {'type': 'number', 'value': 4}
+2024-03-22 21:22:08 [INFO] Executing Step 7: ResultParsing
+2024-03-22 21:22:26 [INFO] Question: How many males older than 30
+
+2024-03-22 21:22:26 [INFO] Running PandasAI with openai LLM...
+2024-03-22 21:22:26 [INFO] Prompt ID: af994360-0579-407c-8305-28076b2a3bcb
+2024-03-22 21:22:26 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-22 21:22:26 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-22 21:22:26 [INFO] Executing Step 1: CacheLookup
+2024-03-22 21:22:26 [INFO] Executing Step 2: PromptGeneration
+2024-03-22 21:22:26 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Male
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 24
+      - 32
+      - 27
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 7
+      - 3
+      - 1
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 5
+      - 2
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 5
+      - 6
+      - 7
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 6
+      - 4
+      - 2
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 2
+      - 6
+    - name: Gold
+      type: int64
+      samples:
+      - 5
+      - 2
+      - 6
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'No'
+      - 'Yes'
+    - name: Factor
+      type: object
+      samples:
+      - Risk
+      - Returns
+      - Locking Period
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - Less than 1 year
+      - 1-3 years
+      - More than 5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Weekly
+      - Monthly
+      - Daily
+    - name: Expect
+      type: object
+      samples:
+      - 30%-40%
+      - 20%-30%
+      - 10%-20%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Fixed Deposits
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Retirement Plan
+      - Education
+      - Health Care
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Dividend
+      - Liquidity
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Tax Benefits
+      - Better Returns
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Tax Incentives
+      - Safe Investment
+      - Assured Returns
+    - name: Reason_FD
+      type: object
+      samples:
+      - High Interest Rates
+      - Risk Free
+      - Fixed Returns
+    - name: Source
+      type: object
+      samples:
+      - Newspapers and Magazines
+      - Television
+      - Financial Consultants
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many males older than 30
+
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-22 21:22:26 [INFO] Executing Step 3: CodeGenerator
+2024-03-22 21:22:30 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Male
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 24
+      - 32
+      - 27
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 7
+      - 3
+      - 1
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 5
+      - 2
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 5
+      - 6
+      - 7
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 6
+      - 4
+      - 2
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 2
+      - 6
+    - name: Gold
+      type: int64
+      samples:
+      - 5
+      - 2
+      - 6
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'No'
+      - 'Yes'
+    - name: Factor
+      type: object
+      samples:
+      - Risk
+      - Returns
+      - Locking Period
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - Less than 1 year
+      - 1-3 years
+      - More than 5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Weekly
+      - Monthly
+      - Daily
+    - name: Expect
+      type: object
+      samples:
+      - 30%-40%
+      - 20%-30%
+      - 10%-20%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Fixed Deposits
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Retirement Plan
+      - Education
+      - Health Care
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Dividend
+      - Liquidity
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Tax Benefits
+      - Better Returns
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Tax Incentives
+      - Safe Investment
+      - Assured Returns
+    - name: Reason_FD
+      type: object
+      samples:
+      - High Interest Rates
+      - Risk Free
+      - Fixed Returns
+    - name: Source
+      type: object
+      samples:
+      - Newspapers and Magazines
+      - Television
+      - Financial Consultants
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many males older than 30
+
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-22 21:22:30 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+result = {
+    "type": "number",
+    "value": len(dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 30)])
+}
+            ```
+            
+2024-03-22 21:22:30 [INFO] Executing Step 4: CachePopulation
+2024-03-22 21:22:30 [INFO] Executing Step 5: CodeExecution
+2024-03-22 21:22:30 [INFO] 
+Code running:
+```
+result = {'type': 'number', 'value': len(dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 30)])}
+        ```
+2024-03-22 21:22:30 [INFO] Executing Step 6: ResultValidation
+2024-03-22 21:22:30 [INFO] Answer: {'type': 'number', 'value': 4}
+2024-03-22 21:22:30 [INFO] Executing Step 7: ResultParsing
+2024-03-22 21:24:03 [INFO] Question: How many males older than 30
+
+2024-03-22 21:24:03 [INFO] Running PandasAI with openai LLM...
+2024-03-22 21:24:03 [INFO] Prompt ID: f55bd915-819c-4911-ab27-b930eb697eb4
+2024-03-22 21:24:03 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-22 21:24:03 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-22 21:24:03 [INFO] Executing Step 1: CacheLookup
+2024-03-22 21:24:03 [INFO] Using cached response
+2024-03-22 21:24:03 [INFO] Executing Step 2: PromptGeneration
+2024-03-22 21:24:03 [INFO] Executing Step 2: Skipping...
+2024-03-22 21:24:03 [INFO] Executing Step 3: CodeGenerator
+2024-03-22 21:24:03 [INFO] Executing Step 3: Skipping...
+2024-03-22 21:24:03 [INFO] Executing Step 4: CachePopulation
+2024-03-22 21:24:03 [INFO] Executing Step 4: Skipping...
+2024-03-22 21:24:03 [INFO] Executing Step 5: CodeExecution
+2024-03-22 21:24:03 [INFO] 
+Code running:
+```
+result = {'type': 'number', 'value': len(dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 30)])}
+        ```
+2024-03-22 21:24:03 [INFO] Executing Step 6: ResultValidation
+2024-03-22 21:24:03 [INFO] Answer: {'type': 'number', 'value': 4}
+2024-03-22 21:24:03 [INFO] Executing Step 7: ResultParsing
+2024-03-22 21:39:56 [INFO] Question: How many males older than 20
+2024-03-22 21:39:56 [INFO] Running PandasAI with openai LLM...
+2024-03-22 21:39:56 [INFO] Prompt ID: 7bfebcb7-82cf-440b-a747-9546e79c4522
+2024-03-22 21:39:56 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-22 21:39:56 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-22 21:39:56 [INFO] Executing Step 1: CacheLookup
+2024-03-22 21:39:56 [INFO] Executing Step 2: PromptGeneration
+2024-03-22 21:39:56 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Female
+      - Male
+      - Male
+    - name: age
+      type: int64
+      samples:
+      - 25
+      - 24
+      - 29
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 7
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 3
+      - 1
+      - 2
+    - name: Debentures
+      type: int64
+      samples:
+      - 5
+      - 6
+      - 3
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 4
+      - 5
+      - 6
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 6
+      - 7
+      - 5
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 7
+      - 3
+      - 4
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'Yes'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Returns
+      - Risk
+    - name: Objective
+      type: object
+      samples:
+      - Income
+      - Growth
+      - Capital Appreciation
+    - name: Purpose
+      type: object
+      samples:
+      - Returns
+      - Savings for Future
+      - Wealth Creation
+    - name: Duration
+      type: object
+      samples:
+      - Less than 1 year
+      - More than 5 years
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Monthly
+      - Daily
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 30%-40%
+      - 10%-20%
+      - 20%-30%
+    - name: Avenue
+      type: object
+      samples:
+      - Fixed Deposits
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Education
+      - Retirement Plan
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Dividend
+      - Capital Appreciation
+      - Liquidity
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Tax Benefits
+      - Better Returns
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Assured Returns
+      - Tax Incentives
+      - Safe Investment
+    - name: Reason_FD
+      type: object
+      samples:
+      - High Interest Rates
+      - Risk Free
+      - Fixed Returns
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many males older than 20
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-22 21:39:56 [INFO] Executing Step 3: CodeGenerator
+2024-03-22 21:39:59 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Female
+      - Male
+      - Male
+    - name: age
+      type: int64
+      samples:
+      - 25
+      - 24
+      - 29
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 7
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 3
+      - 1
+      - 2
+    - name: Debentures
+      type: int64
+      samples:
+      - 5
+      - 6
+      - 3
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 4
+      - 5
+      - 6
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 6
+      - 7
+      - 5
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 7
+      - 3
+      - 4
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'Yes'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Returns
+      - Risk
+    - name: Objective
+      type: object
+      samples:
+      - Income
+      - Growth
+      - Capital Appreciation
+    - name: Purpose
+      type: object
+      samples:
+      - Returns
+      - Savings for Future
+      - Wealth Creation
+    - name: Duration
+      type: object
+      samples:
+      - Less than 1 year
+      - More than 5 years
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Monthly
+      - Daily
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 30%-40%
+      - 10%-20%
+      - 20%-30%
+    - name: Avenue
+      type: object
+      samples:
+      - Fixed Deposits
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Education
+      - Retirement Plan
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Dividend
+      - Capital Appreciation
+      - Liquidity
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Tax Benefits
+      - Better Returns
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Assured Returns
+      - Tax Incentives
+      - Safe Investment
+    - name: Reason_FD
+      type: object
+      samples:
+      - High Interest Rates
+      - Risk Free
+      - Fixed Returns
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many males older than 20
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-22 21:39:59 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Filter the DataFrame to get males older than 20
+males_over_20 = dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 20)]
+
+# Count the number of males older than 20
+num_males_over_20 = males_over_20.shape[0]
+
+# Declare result variable
+result = {"type": "number", "value": num_males_over_20}
+            ```
+            
+2024-03-22 21:39:59 [INFO] Executing Step 4: CachePopulation
+2024-03-22 21:39:59 [INFO] Executing Step 5: CodeExecution
+2024-03-22 21:39:59 [INFO] 
+Code running:
+```
+males_over_20 = dfs[0][(dfs[0]['gender'] == 'Male') & (dfs[0]['age'] > 20)]
+num_males_over_20 = males_over_20.shape[0]
+result = {'type': 'number', 'value': num_males_over_20}
+        ```
+2024-03-22 21:39:59 [INFO] Executing Step 6: ResultValidation
+2024-03-22 21:39:59 [INFO] Answer: {'type': 'number', 'value': 25}
+2024-03-22 21:39:59 [INFO] Executing Step 7: ResultParsing
+2024-03-23 13:39:55 [INFO] Question: Count number of female older than 20
+2024-03-23 13:39:55 [INFO] Running PandasAI with openai LLM...
+2024-03-23 13:39:55 [INFO] Prompt ID: 77a9f700-10ca-49f1-92fa-3dbfa3ed3c39
+2024-03-23 13:39:55 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-03-23 13:39:55 [INFO] Executing Step 0: ValidatePipelineInput
+2024-03-23 13:39:55 [INFO] Executing Step 1: CacheLookup
+2024-03-23 13:39:55 [INFO] Executing Step 2: PromptGeneration
+2024-03-23 13:39:55 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 35
+      - 28
+      - 22
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 3
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 3
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 2
+      - 7
+      - 3
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 1-3 years
+      - Less than 1 year
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Monthly
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 10%-20%
+      - 20%-30%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Retirement Plan
+      - Education
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - High Interest Rates
+      - Risk Free
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Count number of female older than 20
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-03-23 13:39:55 [INFO] Executing Step 3: CodeGenerator
+2024-03-23 13:39:58 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 35
+      - 28
+      - 22
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 3
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 3
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 2
+      - 7
+      - 3
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 1-3 years
+      - Less than 1 year
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Monthly
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 10%-20%
+      - 20%-30%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Retirement Plan
+      - Education
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - High Interest Rates
+      - Risk Free
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Count number of female older than 20
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-03-23 13:39:58 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in dfs)
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+            ```
+            
+2024-03-23 13:39:58 [INFO] Executing Step 4: CachePopulation
+2024-03-23 13:39:58 [INFO] Executing Step 5: CodeExecution
+2024-03-23 13:39:58 [INFO] 
+Code running:
+```
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in dfs)
+result = {'type': 'number', 'value': female_over_20}
+        ```
+2024-03-23 13:39:58 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 77, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value must match with type number
+
+2024-03-23 13:39:58 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-03-23 13:39:58 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-03-23 13:39:58 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-03-23 13:39:58 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 35
+      - 28
+      - 22
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 3
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 3
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 2
+      - 7
+      - 3
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 1-3 years
+      - Less than 1 year
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Monthly
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 10%-20%
+      - 20%-30%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Retirement Plan
+      - Education
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - High Interest Rates
+      - Risk Free
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+The user asked the following question:
+### QUERY
+ Count number of female older than 20
+
+You generated this python code:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in dfs)
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+
+It fails with the following error:
+Value must match with type number
+
+Fix the python code above and return the new python code:
+2024-03-23 13:39:58 [INFO] Executing Step 1: CodeGenerator
+2024-03-23 13:40:01 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 35
+      - 28
+      - 22
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 3
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 3
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 2
+      - 7
+      - 3
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 1-3 years
+      - Less than 1 year
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Monthly
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 10%-20%
+      - 20%-30%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Retirement Plan
+      - Education
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - High Interest Rates
+      - Risk Free
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+The user asked the following question:
+### QUERY
+ Count number of female older than 20
+
+You generated this python code:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in dfs)
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+
+It fails with the following error:
+Value must match with type number
+
+Fix the python code above and return the new python code:
+            
+2024-03-23 13:40:01 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in dfs[0])
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+            ```
+            
+2024-03-23 13:40:01 [INFO] 
+Code running:
+```
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in dfs[0])
+result = {'type': 'number', 'value': female_over_20}
+        ```
+2024-03-23 13:40:01 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 64, in execute
+    result = code_manager.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\pandasai\helpers\code_manager.py", line 207, in execute_code
+    exec(code_to_run, environment)
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <genexpr>
+TypeError: string indices must be integers, not 'str'
+
+2024-03-23 13:40:01 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-03-23 13:40:01 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-03-23 13:40:01 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-03-23 13:40:01 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 35
+      - 28
+      - 22
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 3
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 3
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 2
+      - 7
+      - 3
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 1-3 years
+      - Less than 1 year
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Monthly
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 10%-20%
+      - 20%-30%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Retirement Plan
+      - Education
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - High Interest Rates
+      - Risk Free
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+The user asked the following question:
+### QUERY
+ Count number of female older than 20
+
+You generated this python code:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in dfs[0])
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+
+It fails with the following error:
+string indices must be integers, not 'str'
+
+Fix the python code above and return the new python code:
+2024-03-23 13:40:01 [INFO] Executing Step 1: CodeGenerator
+2024-03-23 13:40:02 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 35
+      - 28
+      - 22
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 3
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 3
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 2
+      - 7
+      - 3
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 1-3 years
+      - Less than 1 year
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Monthly
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 10%-20%
+      - 20%-30%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Retirement Plan
+      - Education
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - High Interest Rates
+      - Risk Free
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+The user asked the following question:
+### QUERY
+ Count number of female older than 20
+
+You generated this python code:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in dfs[0])
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+
+It fails with the following error:
+string indices must be integers, not 'str'
+
+Fix the python code above and return the new python code:
+            
+2024-03-23 13:40:02 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in [dfs[0]])
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+            ```
+            
+2024-03-23 13:40:02 [INFO] 
+Code running:
+```
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in [dfs[0]])
+result = {'type': 'number', 'value': female_over_20}
+        ```
+2024-03-23 13:40:02 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 77, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value must match with type number
+
+2024-03-23 13:40:02 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-03-23 13:40:02 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-03-23 13:40:02 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-03-23 13:40:02 [INFO] Using prompt: dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 35
+      - 28
+      - 22
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 3
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 3
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 2
+      - 7
+      - 3
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 1-3 years
+      - Less than 1 year
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Monthly
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 10%-20%
+      - 20%-30%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Retirement Plan
+      - Education
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - High Interest Rates
+      - Risk Free
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+The user asked the following question:
+### QUERY
+ Count number of female older than 20
+
+You generated this python code:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in [dfs[0]])
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+
+It fails with the following error:
+Value must match with type number
+
+Fix the python code above and return the new python code:
+2024-03-23 13:40:02 [INFO] Executing Step 1: CodeGenerator
+2024-03-23 13:40:04 [INFO] Prompt used:
+            dfs[0]:
+  name: null
+  description: null
+  type: pd.DataFrame
+  rows: 40
+  columns: 24
+  schema:
+    fields:
+    - name: gender
+      type: object
+      samples:
+      - Male
+      - Female
+      - Female
+    - name: age
+      type: int64
+      samples:
+      - 35
+      - 28
+      - 22
+    - name: Investment_Avenues
+      type: object
+      samples:
+      - 'Yes'
+      - 'Yes'
+      - 'No'
+    - name: Mutual_Funds
+      type: int64
+      samples:
+      - 2
+      - 5
+      - 4
+    - name: Equity_Market
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 1
+    - name: Debentures
+      type: int64
+      samples:
+      - 1
+      - 3
+      - 5
+    - name: Government_Bonds
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 3
+    - name: Fixed_Deposits
+      type: int64
+      samples:
+      - 2
+      - 4
+      - 6
+    - name: PPF
+      type: int64
+      samples:
+      - 5
+      - 3
+      - 2
+    - name: Gold
+      type: int64
+      samples:
+      - 2
+      - 7
+      - 3
+    - name: Stock_Marktet
+      type: object
+      samples:
+      - 'No'
+      - 'Yes'
+      - 'No'
+    - name: Factor
+      type: object
+      samples:
+      - Locking Period
+      - Risk
+      - Returns
+    - name: Objective
+      type: object
+      samples:
+      - Growth
+      - Capital Appreciation
+      - Income
+    - name: Purpose
+      type: object
+      samples:
+      - Wealth Creation
+      - Returns
+      - Savings for Future
+    - name: Duration
+      type: object
+      samples:
+      - 1-3 years
+      - Less than 1 year
+      - 3-5 years
+    - name: Invest_Monitor
+      type: object
+      samples:
+      - Daily
+      - Monthly
+      - Weekly
+    - name: Expect
+      type: object
+      samples:
+      - 10%-20%
+      - 20%-30%
+      - 30%-40%
+    - name: Avenue
+      type: object
+      samples:
+      - Equity
+      - Mutual Fund
+      - Public Provident Fund
+    - name: What are your savings objectives?
+      type: object
+      samples:
+      - Health Care
+      - Retirement Plan
+      - Education
+    - name: Reason_Equity
+      type: object
+      samples:
+      - Capital Appreciation
+      - Liquidity
+      - Dividend
+    - name: Reason_Mutual
+      type: object
+      samples:
+      - Fund Diversification
+      - Better Returns
+      - Tax Benefits
+    - name: Reason_Bonds
+      type: object
+      samples:
+      - Safe Investment
+      - Assured Returns
+      - Tax Incentives
+    - name: Reason_FD
+      type: object
+      samples:
+      - Fixed Returns
+      - High Interest Rates
+      - Risk Free
+    - name: Source
+      type: object
+      samples:
+      - Internet
+      - Financial Consultants
+      - Television
+
+
+The user asked the following question:
+### QUERY
+ Count number of female older than 20
+
+You generated this python code:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in [dfs[0]])
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": female_over_20
+}
+
+It fails with the following error:
+Value must match with type number
+
+Fix the python code above and return the new python code:
+            
+2024-03-23 13:40:04 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in [dfs[0]])
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": int(female_over_20)
+}
+            ```
+            
+2024-03-23 13:40:04 [INFO] 
+Code running:
+```
+female_over_20 = sum((df['gender'] == 'Female') & (df['age'] > 20) for df in [dfs[0]])
+result = {'type': 'number', 'value': int(female_over_20)}
+        ```
+2024-03-23 13:40:04 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 64, in execute
+    result = code_manager.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\pandasai\helpers\code_manager.py", line 207, in execute_code
+    exec(code_to_run, environment)
+  File "<string>", line 2, in <module>
+  File "C:\Python312\Lib\site-packages\pandas\core\series.py", line 206, in wrapper
+    raise TypeError(f"cannot convert the series to {converter}")
+TypeError: cannot convert the series to <class 'int'>
+
+2024-03-23 13:40:04 [ERROR] Pipeline failed on step 5: cannot convert the series to <class 'int'>
